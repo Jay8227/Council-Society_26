@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Call to Those Who See</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --deep-earth: #1a1612;
+            --burnt-ochre: #8b4513;
+            --sage-green: #4a5d4f;
+            --warm-parchment: #f5f1e8;
+            --blood-orange: #d4622f;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+    
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, #0f0c09 0%, #1a1612 50%, #0f0c09 100%);
+            color: var(--warm-parchment);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(245, 241, 232, 0.02) 2px, rgba(245, 241, 232, 0.02) 4px);
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .opening {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border-left: 3px solid var(--blood-orange);
+            border-right: 3px solid var(--blood-orange);
+            background: rgba(212, 98, 47, 0.05);
+            animation: slideIn 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .opening h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            color: var(--blood-orange);
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .opening .subtitle {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--warm-parchment);
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .truth-block {
+            background: linear-gradient(to right, rgba(74, 93, 79, 0.15), rgba(74, 93, 79, 0.05));
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            border-left: 4px solid var(--sage-green);
+            position: relative;
+            animation: slideIn 1s ease-out 0.6s backwards;
+        }
+
+        .truth-block::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 6rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--blood-orange);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .truth-block p {
+            font-size: 1.35rem;
+            line-height: 1.9;
+            margin-bottom: 1.2rem;
+            font-weight: 400;
+        }
+
+        .truth-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .emphasis {
+            color: var(--blood-orange);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(245, 241, 232, 0.03);
+            border-radius: 2px;
+            animation: slideIn 1s ease-out 0.9s backwards;
+        }
+
+        .section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--blood-orange);
+            border-bottom: 1px solid var(--sage-green);
+            padding-bottom: 0.5rem;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+
+        .why-list {
+            margin: 2rem 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .why-list li {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.8rem;
+            padding-left: 2.5rem;
+            position: relative;
+            animation: slideIn 1s ease-out backwards;
+        }
+
+        .why-list li:nth-child(1) {
+            animation-delay: 1.2s;
+        }
+
+        .why-list li:nth-child(2) {
+            animation-delay: 1.3s;
+        }
+
+        .why-list li:nth-child(3) {
+            animation-delay: 1.4s;
+        }
+
+        .why-list li:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        .why-list li:nth-child(5) {
+            animation-delay: 1.6s;
+        }
+
+        .why-list li:nth-child(6) {
+            animation-delay: 1.7s;
+        }
+
+        .why-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--blood-orange);
+            font-size: 1.2rem;
+        }
+
+        .why-list strong {
+            color: var(--blood-orange);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 1.3rem;
+        }
+
+        .call-to-action {
+            background: linear-gradient(135deg, rgba(212, 98, 47, 0.2), rgba(212, 98, 47, 0.05));
+            padding: 3rem;
+            text-align: center;
+            margin: 3rem 0;
+            border: 2px solid var(--blood-orange);
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 1s ease-out 1.8s backwards;
+        }
+
+        .call-to-action::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 98, 47, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .call-to-action h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--blood-orange);
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .call-to-action p {
+            font-size: 1.4rem;
+            line-height: 1.9;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-word {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--blood-orange);
+            color: var(--blood-orange);
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .closing {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            font-style: italic;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            animation: fadeIn 1.5s ease-out 2s backwards;
+        }
+
+        @media (max-width: 768px) {
+            .opening h1 {
+                font-size: 2rem;
+            }
+
+            .opening .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .truth-block p,
+            .section p,
+            .why-list li {
+                font-size: 1.1rem;
+            }
+
+            .section h2 {
+                font-size: 1.6rem;
+            }
+
+            .call-to-action h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --deep-earth: #1a1612;
+            --burnt-ochre: #8b4513;
+            --sage-green: #4a5d4f;
+            --warm-parchment: #f5f1e8;
+            --blood-orange: #d4622f;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+    
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, #0f0c09 0%, #1a1612 50%, #0f0c09 100%);
+            color: var(--warm-parchment);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(245, 241, 232, 0.02) 2px, rgba(245, 241, 232, 0.02) 4px);
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .opening {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border-left: 3px solid var(--blood-orange);
+            border-right: 3px solid var(--blood-orange);
+            background: rgba(212, 98, 47, 0.05);
+            animation: slideIn 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .opening h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            color: var(--blood-orange);
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .opening .subtitle {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--warm-parchment);
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .truth-block {
+            background: linear-gradient(to right, rgba(74, 93, 79, 0.15), rgba(74, 93, 79, 0.05));
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            border-left: 4px solid var(--sage-green);
+            position: relative;
+            animation: slideIn 1s ease-out 0.6s backwards;
+        }
+
+        .truth-block::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 6rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--blood-orange);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .truth-block p {
+            font-size: 1.35rem;
+            line-height: 1.9;
+            margin-bottom: 1.2rem;
+            font-weight: 400;
+        }
+
+        .truth-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .emphasis {
+            color: var(--blood-orange);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(245, 241, 232, 0.03);
+            border-radius: 2px;
+            animation: slideIn 1s ease-out 0.9s backwards;
+        }
+
+        .section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--blood-orange);
+            border-bottom: 1px solid var(--sage-green);
+            padding-bottom: 0.5rem;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+
+        .why-list {
+            margin: 2rem 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .why-list li {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.8rem;
+            padding-left: 2.5rem;
+            position: relative;
+            animation: slideIn 1s ease-out backwards;
+        }
+
+        .why-list li:nth-child(1) {
+            animation-delay: 1.2s;
+        }
+
+        .why-list li:nth-child(2) {
+            animation-delay: 1.3s;
+        }
+
+        .why-list li:nth-child(3) {
+            animation-delay: 1.4s;
+        }
+
+        .why-list li:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        .why-list li:nth-child(5) {
+            animation-delay: 1.6s;
+        }
+
+        .why-list li:nth-child(6) {
+            animation-delay: 1.7s;
+        }
+
+        .why-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--blood-orange);
+            font-size: 1.2rem;
+        }
+
+        .why-list strong {
+            color: var(--blood-orange);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 1.3rem;
+        }
+
+        .call-to-action {
+            background: linear-gradient(135deg, rgba(212, 98, 47, 0.2), rgba(212, 98, 47, 0.05));
+            padding: 3rem;
+            text-align: center;
+            margin: 3rem 0;
+            border: 2px solid var(--blood-orange);
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 1s ease-out 1.8s backwards;
+        }
+
+        .call-to-action::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 98, 47, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .call-to-action h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--blood-orange);
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .call-to-action p {
+            font-size: 1.4rem;
+            line-height: 1.9;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-word {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--blood-orange);
+            color: var(--blood-orange);
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .closing {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            font-style: italic;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            animation: fadeIn 1.5s ease-out 2s backwards;
+        }
+
+        @media (max-width: 768px) {
+            .opening h1 {
+                font-size: 2rem;
+            }
+
+            .opening .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .truth-block p,
+            .section p,
+            .why-list li {
+                font-size: 1.1rem;
+            }
+
+            .section h2 {
+                font-size: 1.6rem;
+            }
+
+            .call-to-action h2 {
+                font-size: 1.8rem;
+            }
+        }
+        .form-button {
+    display: block;
+    margin: 2rem auto;
+    padding: 1.2rem 3rem;
+    background: linear-gradient(135deg, var(--blood-orange), #b8491a);
+    color: var(--warm-parchment);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid var(--blood-orange);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px var(--shadow);
+    cursor: pointer;
+    width: fit-content;
+}
+
+.form-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(245, 241, 232, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.form-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.form-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(212, 98, 47, 0.4);
+    border-color: var(--warm-parchment);
+}
+
+.form-button span {
+    position: relative;
+    z-index: 1;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="opening">
+            <h1>A Call to Those Who See</h1>
+            <p class="subtitle">An invitation to step beyond fragmentation into collective understanding</p>
+        </div>
+
+        <div class="truth-block">
+            <p>Look at the world as it stands today.</p>
+            <p>Climate systems collapsing. Inequality deepening. Technology without wisdom. Education that trains but
+                does not enlighten. Bodies treated, minds medicated, but <span class="emphasis">life</span>... life
+                remains unexamined.</p>
+            <p>Why does this continue?</p>
+            <p>Because we have divided knowledge into territories. The scientist does not speak to the economist. The
+                doctor does not learn from the philosopher. The technologist builds without asking the ethicist. And the
+                artist...the artist is told their vision has no place in "serious" matters.</p>
+            <p><span class="emphasis">This fragmentation is the crisis.</span></p>
+        </div>
+
+        <div class="section">
+            <h2>What Do We Do</h2>
+            <h3> <span class="emphasis">Break Knowledge Silos</span></h3>  
+            <p>We bring together experts from climate science, technology, medicine, economics, philosophy, education, and beyond...not to work in parallel, but to teach each other and build shared intelligence.</p>
+            <h3><span class="emphasis">Understand Reality Holistically</span></h3>
+            <p>Through cross-disciplinary dialogue, we develop a clear, factual understanding of interconnected global challenges...free from ideology, fragmentation, and distortion.</p>
+            <h3><span class="emphasis">Generate Real Solutions</span></h3>
+            <p>Our contributor circles conduct research, run field projects, and create tools that translate understanding into meaningful impact from climate action to educational reform.
+</p>
+            <h3><span class="emphasis">Raise Public Awareness</span></h3>
+            <p>We make complex truths accessible through reports, campaigns, and dialogues, empowering communities to respond to crises with clarity instead of confusion.</p>
+        </div>
+
+        <div class="section">
+            <h2>Why Does This Matter to You?</h2>
+            <ul class="why-list">
+                <li>
+                    <strong>Because isolation is suffering.</strong>
+                    If you are working in your field and feel the limits of your discipline... if you sense that the
+                    answers lie beyond your domain but have no bridge to cross. This is your bridge.
+                </li>
+                <li>
+                    <strong>Because action without understanding is violence.</strong>
+                    The world does not need more fragmented action. It needs people who see the whole, who understand
+                    systems, who can act from intelligence rather than ideology. Here, you develop that sight.
+                </li>
+                <li>
+                    <strong>Because truth is being drowned in noise.</strong>
+                    You know this. Information everywhere, understanding nowhere. Here, we cut through. We research, we
+                    verify, we understand. Not for profit. Not for agenda. For <span class="emphasis">clarity</span>.
+                </li>
+                <li>
+                    <strong>Because you have something to give.</strong>
+                    Your expertise matters. Your questions matter. But more...your willingness to step beyond what you
+                    know and learn from others, that is precious. That is what transforms individual brilliance into
+                    collective wisdom.
+                </li>
+                <li>
+                    <strong>Because intellectual work must serve life.</strong>
+                    We do not study the world as spectators. Every insight we develop feeds into research, into
+                    education, into community action. Knowledge becomes service. Understanding becomes change.
+                </li>
+                <li>
+                    <strong>Because you are tired of pretending everything is fine.</strong>
+                    You see it. The ecological collapse. The mental health crisis. The educational decay. The ethical
+                    void in technology. You see it, and you refuse to look away. So do we. This is where those who see
+                    gather.
+                </li>
+            </ul>
+        </div>
+
+        <div class="call-to-action">
+            <h2>This Is Not for Everyone</h2>
+            <p>If you seek credentials, there are universities.</p>
+            <p>If you seek comfort, there are many pleasant illusions available.</p>
+            <p>If you seek power or prestige, look elsewhere.</p>
+            <p>But if you seek <span class="emphasis">truth</span>... if you are willing to question your own field, to
+                learn from others, to work not for recognition but for understanding...if you believe that humanity's
+                survival depends not on isolated genius but on <span class="emphasis">integrated intelligence.</span>
+            </p>
+            <p class="final-word">Then you belong here.</p>
+        </div>
+
+        <div class="section">
+            <h2>What We Ask of You</h2>
+            <p><span class="emphasis">Intellectual honesty.</span> Bring your expertise, but hold it lightly. Be willing
+                to be wrong. Be willing to learn.</p>
+            <p><span class="emphasis">Genuine curiosity.</span> Not the curiosity that seeks to confirm what you already
+                believe, but the curiosity that is open to being transformed.</p>
+            <p><span class="emphasis">Commitment to truth over ideology.</span> We follow evidence. We question
+                assumptions. We are not bound by political positions or fashionable opinions.</p>
+            <p><span class="emphasis">Service over ego.</span> This work is not about building your personal brand. It
+                is about building collective understanding that can serve the world.</p>
+            <p><span class="emphasis">Active participation.</span> Whether as a core member sharing your domain
+                expertise, or as a contributor conducting research, creating content, engaging communities...your hands
+                and mind are needed.</p>
+        </div>
+
+        <div class="truth-block">
+            <p>The world is at a threshold.</p>
+            <p>Not the threshold between progress and regress...that is too simple.</p>
+            <p>The threshold between <span class="emphasis">fragmentation and coherence</span>. Between reaction and
+                response. Between cleverness and wisdom.</p>
+            <p>You standing there, reading this...you are not here by accident.</p>
+            <p>Something in you recognizes what is being said. Something in you has been waiting for a space like this.
+            </p>
+            <p>We are building it. Not for tomorrow. Now.</p>
+        </div>
+
+        <div class="call-to-action">
+            <h2>Join Us</h2>
+            <p>Not because we promise you success.</p>
+            <p>Not because we guarantee impact.</p>
+            <p>But because <span class="emphasis">you cannot do otherwise</span>.</p>
+            <p>Because when you see clearly, action follows. Because when understanding deepens, contribution becomes
+                inevitable.</p>
+            <p class="final-word">Come. Let us see together what fragmentation has hidden.</p>
+        </div>
+        
+        <a href="https://forms.google.com/your-form-id" target="_blank" rel="noopener noreferrer" class="form-button">
+        <span>Express Your Interest</span>
+        </a>
+
+        <div class="closing">
+            <p>For those ready to step beyond their silos into shared understanding.</p>
+            <p>For those who choose clarity over comfort.</p>
+            <p>For those who know that the world's crises demand not louder voices, but deeper sight.</p>
+        </div>
+    </div>
+</body>
+
+</html>
